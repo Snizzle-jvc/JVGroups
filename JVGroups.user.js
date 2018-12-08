@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        JVGroups
 // @author      Snizzle
-// @version     1.0
+// @version     1.1
 // @downloadURL https://github.com/Snizzle-jvc/JVGroups/raw/master/JVGroups.user.js
 // @updateURL   https://github.com/Snizzle-jvc/JVGroups/raw/master/JVGroups.user.js
 // @supportURL  http://www.jeuxvideo.com/messages-prives/nouveau.php?all_dest=Snizzle;Snitchzzle
@@ -51,7 +51,8 @@ $(function(a) {
       "" == e[a].pseudo && (e.splice([a], 1), localStorage.setItem("jvgroup", JSON.stringify(e)));
     }
   })();
-  a(".bloc-pseudo-msg").after('<span class="jvgroup" title="Ajouter ce pseudo \u00e0 un groupe" style="height: 14px;background: #dddddd;font-size: 10px;line-height: 0.2;margin: 14px 0px 0px 20px;text-transform: uppercase;display:inline-block;font-weight: 700;text-align: center;vertical-align: middle;cursor: pointer;background-image: none;border: 0.0625rem solid transparent;white-space: nowrap;padding: 0.375rem 0.75rem;"></span>');
+  a(".infos-pseudo h1").after('<span class="jvgroup" title="Ajouter ce pseudo \u00e0 un groupe" style="color:black;height: 14px;background: #dddddd;font-size: 10px;line-height: 0.2;margin: 14px 0px 0px 20px;text-transform: uppercase;display:inline-block;font-weight: 700;text-align: center;vertical-align: middle;cursor: pointer;background-image: none;border: 0.0625rem solid transparent;white-space: nowrap;padding: 0.375rem 0.75rem;"></span>');
+  a(".bloc-pseudo-msg").after('<span class="jvgroup" title="Ajouter ce pseudo \u00e0 un groupe" style="color:black;height: 14px;background: #dddddd;font-size: 10px;line-height: 0.2;margin: 14px 0px 0px 20px;text-transform: uppercase;display:inline-block;font-weight: 700;text-align: center;vertical-align: middle;cursor: pointer;background-image: none;border: 0.0625rem solid transparent;white-space: nowrap;padding: 0.375rem 0.75rem;"></span>');
   for (var f = 0; f < e.length; f++) {
     a(".scroll-jvg").append('<a class="xXx lien-jv groupname" id="' + e[f].group + '" style="margin: 0px 5px 5px 0;cursor:pointer">' + e[f].group + " (" + e[f].pseudo.length + ") </a>");
   }
@@ -109,7 +110,7 @@ $(function(a) {
       }), f = b.findIndex(function(a, b) {
         return a.group === d;
       });
-      "" !== d ? (-1 == f ? (b.push({group:d, pseudo:[c]}), a("#logs").text(c + " ajout\u00e9 \u00e0 : " + d).css("color", "green")) : b[f].pseudo.includes(c) || (b[f].pseudo.push(c), a("#logs").text(c + " ajout\u00e9 \u00e0 : " + d).css("color", "green")), 0 <= e && b[e].group !== d && (console.log(e), f = b[e].pseudo.indexOf(c), b[e].pseudo.splice(f, 1), a("#logs").text(c + " ajout\u00e9 \u00e0 : " + d + " et supprim\u00e9 de son ancien groupe").css("color", "green")), a("#removePseudo").show()) :
+      "" !== d ? (-1 == f ? (b.push({group:d, pseudo:[c]}), a("#logs").text(c + " ajout\u00e9 \u00e0 : " + d).css("color", "green")) : b[f].pseudo.includes(c) || (b[f].pseudo.push(c), a("#logs").text(c + " ajout\u00e9 \u00e0 : " + d).css("color", "green")), 0 <= e && b[e].group !== d && (console.log(e), f = b[e].pseudo.indexOf(c), b[e].pseudo.splice(f, 1), a("#logs").text(c + " ajout\u00e9 \u00e0 : " + d + " et supprim\u00e9 de son ancien groupe").css("color", "green")), a("#removePseudo").show()) : 
       a("#logs").text("Erreur: veuillez renseigner un nom de groupe").css("color", "red");
       localStorage.setItem("jvgroup", JSON.stringify(b));
     });
